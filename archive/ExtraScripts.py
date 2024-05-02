@@ -116,13 +116,16 @@ def preprocess_text(text):
       A list of string tokens.
     """
 
-    nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load("xx_ent_wiki_sm")
     doc = nlp(text)
 
     # Lemmatize words.
     tokens = [token.lemma_ for token in doc]
 
     # Remove stopwords.
+    stopwords = spacy.lang.ru.stop_words.STOP_WORDS
+    tokens = [token for token in tokens if token not in stopwords]
+
     stopwords = spacy.lang.en.stop_words.STOP_WORDS
     tokens = [token for token in tokens if token not in stopwords]
 
