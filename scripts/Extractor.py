@@ -4,40 +4,33 @@ import spacy
 from .utils import TextCleaner
 
 
-# Load the English model
-nlp = spacy.load('en_core_web_sm')
+# Load the Multilingual model
+nlp = spacy.load('xx_ent_wiki_sm')
 
 
 RESUME_SECTIONS = [
-    'Contact Information',
-    'Objective',
-    'Summary',
-    'Education',
-    'Experience',
-    'Skills',
-    'Projects',
-    'Certifications',
+    'Контакты',
+    'Контактная информация',
+    'Описание',
+    'Образование',
+    'Опыт',
+    'Навыки',
+    'Проекты',
+    'Сертификаты',
     'Licenses',
-    'Awards',
-    'Honors',
-    'Publications',
-    'References',
-    'Technical Skills',
-    'Computer Skills',
-    'Programming Languages',
-    'Software Skills',
+    'Награды',
+    'Публикации',
+    'Референсы',
+    'Технические скилы',
+    'Скилы',
+    'Языки программирования',
+    'Hard Skills',
     'Soft Skills',
-    'Language Skills',
-    'Professional Skills',
-    'Transferable Skills',
-    'Work Experience',
-    'Professional Experience',
-    'Employment History',
-    'Internship Experience',
-    'Volunteer Experience',
-    'Leadership Experience',
-    'Research Experience',
-    'Teaching Experience'
+    'Языки',
+    'Опыт работы',
+    'Профессиональный опыт',
+    'Стажировки',
+    'Исследовательский опыт'
 ]
 
 
@@ -107,7 +100,7 @@ class DataExtractor:
         Returns:
             list: A list of strings representing the names extracted from the text.
         """
-        names = [ent.text for ent in self.doc.ents if ent.label_ == 'PERSON']
+        names = [ent.text for ent in self.doc.ents if ent.label_ == 'PER']
         return names
 
     def extract_emails(self):
@@ -153,7 +146,7 @@ class DataExtractor:
 
         for token in self.doc:
             if token.text in RESUME_SECTIONS:
-                if token.text == 'Experience' or 'EXPERIENCE' or 'experience':
+                if token.text == 'Опыт' or 'ОПЫТ' or 'опыт':
                     in_experience_section = True
                 else:
                     in_experience_section = False
