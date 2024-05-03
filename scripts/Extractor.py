@@ -5,7 +5,7 @@ from .utils import TextCleaner
 
 
 # Load the Multilingual model
-nlp = spacy.load('xx_ent_wiki_sm')
+nlp = spacy.load('ru_core_news_sm')
 
 
 RESUME_SECTIONS = [
