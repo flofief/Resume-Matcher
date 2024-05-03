@@ -2,8 +2,8 @@ from uuid import uuid4
 import re
 import spacy
 
-# Load the Multiliguial model
-nlp = spacy.load('xx_ent_wiki_sm')
+# Load the Russian model
+nlp = spacy.load('ru_core_news_sm')
 
 REGEX_PATTERNS = {
     'email_pattern': r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b',
