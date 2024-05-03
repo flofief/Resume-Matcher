@@ -17,7 +17,7 @@ class KeytermExtractor:
         """
         self.raw_text = raw_text
         self.text_doc = textacy.make_spacy_doc(
-            self.raw_text, lang="xx_ent_wiki_sm")
+            self.raw_text, lang="ru_core_news_sm")
         self.top_n_values = top_n_values
 
     def get_keyterms_based_on_textrank(self):
