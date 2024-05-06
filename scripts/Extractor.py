@@ -166,7 +166,7 @@ class DataExtractor:
             Returns:
                 list: A list containing the extracted position and year.
         """
-        position_year_search_pattern = r"(\b\w+\b\s+\b\w+\b),\s+(\d{4})\s*-\s*(\d{4}|\bpresent\b)"
+        position_year_search_pattern = r"(\b\w+\b\s+\b\w+\b),\s+(\w+\s+\d{4}|\d{4})\s*-\s*(\w+\s+\d{4}|\d{4}|\bpresent\b)"
         position_year = re.findall(
             position_year_search_pattern, self.text)
         return position_year
